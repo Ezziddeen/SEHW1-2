@@ -1,0 +1,72 @@
+<project default="all"> 
+<property name="src.java.dir" location="./src"/> 
+<property name="junit.dir" location="./junit/junit.jar"/> 
+<property name="ham.dir" location="./junit/hamcrest-2.1.jar"/> 
+<property name="src.test.dir" location="./MyTC"/>  
+<property name="result.dir" location="./target"/> 
+<property name="result.javaclasses.dir" location="${result.dir}/classes"/> 
+<property name="result.testclasses.dir" location="${result.dir}/testclasses"/> 
+<property name="result.jar.file" location="./MyProduct.jar"/> 
+
+	
+<target name="all" depends="compile,compile-testclasses,Test">
+
+
+
+</target>
+	
+	
+<target name="compile"> 
+<mkdir dir="${result.javaclasses.dir}"/>  
+<javac srcdir="${src.java.dir}"  destdir="${result.javaclasses.dir}" debug="true" includeantruntime="false"> 
+</javac>  
+</target> 
+	
+<!-- Comment Make jar or executable product --> 
+<target name="jar" depends="compile"> 
+<jar destfile="${result.jar.file}"> 
+<fileset dir="${result.javaclasses.dir}"> 
+</fileset> 
+</jar> 
+</target>
+	
+<target name="compile-testclasses" depends="compile">
+<mkdir dir="${result.testclasses.dir}"/> 
+<javac srcdir="${src.test.dir}" destdir="${result.testclasses.dir}" debug="true" includeantruntime="false"> 
+	<classpath>
+	    <pathelement location="${result.javaclasses.dir}"/>
+		<pathelement location="${junit.dir}"/>
+	        </classpath>
+</javac>  
+
+</target>
+
+	
+<target name="Test" depends="compile-testclasses">
+<junit haltonfailure="true" printsummary="true" fork="true">
+
+<classpath>
+<pathelement location="${junit.dir}"/>
+<pathelement location="${ham.dir}"/>
+<pathelement location="${result.testclasses.dir}"/>
+<pathelement location="${result.javaclasses.dir}"/>
+
+</classpath>
+<formatter type="brief" usefile="false"/>
+
+<test name="MyTest">
+
+
+</test>
+	
+	
+</junit>
+
+
+</target>
+	
+	
+	
+	
+	
+</project> 
