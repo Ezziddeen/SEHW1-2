@@ -6,10 +6,10 @@
 <property name="result.dir" location="./target"/> 
 <property name="result.javaclasses.dir" location="${result.dir}/classes"/> 
 <property name="result.testclasses.dir" location="${result.dir}/testclasses"/> 
-<property name="result.jar.file" location="./MyProduct.jar"/> 
+<property name="result.jar.file" location="./MyHW.jar"/> 
 
 	
-<target name="all" depends="compile,compile-testclasses,Test">
+<target name="all" depends="compile,compile-testclasses,Test,jar">
 
 
 
