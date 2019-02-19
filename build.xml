@@ -35,7 +35,7 @@
 <javac srcdir="${src.test.dir}" destdir="${result.testclasses.dir}" debug="true" includeantruntime="false"> 
 	<classpath>
 	    <pathelement location="${result.javaclasses.dir}"/>
-		<pathelement location="${junit.dir}"/>
+	    <pathelement location="${junit.dir}"/> 
 	        </classpath>
 </javac>  
 

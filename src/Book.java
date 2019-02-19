@@ -2,10 +2,12 @@
 public class Book {
 
 	private int price;
-
-	public Book(String string, int i) {
+    private String title;
+	public Book(String string, int Price) {
 		// TODO Auto-generated constructor stub
-		this.price=i;
+		this.price=Price;
+		this.title=string;
+		
 	}
 
 	public int getPrice() {
@@ -13,4 +15,10 @@ public class Book {
 		return this.price;
 	}
 
+	
+	
+	public String getTitle() {
+		return this.title;
+		
+	}
 }
